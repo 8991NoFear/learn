@@ -1,31 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Starter</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-    
+
+    <style>
+        .relative {
+            position: relative;
+            height: 500px;
+        }
+
+        /**
+        * Create a position for the map
+        * on the page */
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+
+        /**
+        * Set rules for how the map overlays
+        * (information box and legend) will be displayed
+        * on the page. */
+        .map-overlay {
+            position: absolute;
+            background: #fff;
+            margin-right: 20px;
+            font-family: Arial, sans-serif;
+            overflow: auto;
+            border-radius: 3px;
+        }
+
+        #features {
+            top: 0;
+            right: 0;
+            height: 130px;
+            margin-top: 20px;
+            width: 250px;
+            padding: 0.5rem;
+        }
+
+        #legend {
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            height: 220px;
+            margin-bottom: 40px;
+            width: 120px;
+        }
+
+        .legend-key {
+            display: inline-block;
+            border-radius: 20%;
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Demo map</h1>
         <div class="row">
+            <h2>Choropleth Map</h2>
             <div class="col-sm-6">
-                <div id='map' style="width: 400px; height: 400px;" class="w-100"></div>
+                <div class="relative">
+                    <div id='map' style="width: 500px; height: 500px;" class="w-100"></div>
+                    <div class='map-overlay' id='features'>
+                        <h4>US population density</h4>
+                        <div id='pd'>
+                            <p>Hover over a state!</p>
+                        </div>
+                    </div>
+                    <div class='map-overlay' id='legend'></div>
+                </div>
             </div>
         </div>
-    </div>    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
     <script defer>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiODk5MW5vZmVhciIsImEiOiJja3YzOWltM3cxZHBjMnVxMXZ1MjFvZzl1In0.INARVM0hWYBasZThvVobhQ';
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/8991nofear/ckv3bt2eo4k3n15mvlfrx2qnj'
-    });
+        mapboxgl.accessToken = 'pk.eyJ1IjoiODk5MW5vZmVhciIsImEiOiJja3YzOWltM3cxZHBjMnVxMXZ1MjFvZzl1In0.INARVM0hWYBasZThvVobhQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/8991nofear/ckv3bt2eo4k3n15mvlfrx2qnj'
+        });
+
+        map.on('load', () => {
+            const layers = [
+                '0-10',
+                '10-20',
+                '20-50',
+                '50-100',
+                '100-200',
+                '200-500',
+                '500-1000',
+                '1000+'
+            ];
+            const colors = [
+                '#FFEDA0',
+                '#FED976',
+                '#FEB24C',
+                '#FD8D3C',
+                '#FC4E2A',
+                '#E31A1C',
+                '#BD0026',
+                '#800026'
+            ];
+
+            // create legend
+            const legend = document.getElementById('legend');
+
+            layers.forEach((layer, i) => {
+                const color = colors[i];
+                const item = document.createElement('div');
+                const key = document.createElement('span');
+                key.className = 'legend-key';
+                key.style.backgroundColor = color;
+
+                const value = document.createElement('span');
+                value.innerHTML = `${layer}`;
+                item.appendChild(key);
+                item.appendChild(value);
+                legend.appendChild(item);
+            });
+        });
+
+        map.on('mousemove', (event) => {
+            const states = map.queryRenderedFeatures(event.point, {
+                layers: ['statedata']
+            });
+            document.getElementById('pd').innerHTML = states.length
+                ? `<h5>${states[0].properties.name}</h5><p><strong><em>${states[0].properties.density}</strong> people per square mile</em></p>`
+                : `<p>Hover over a state!</p>`;
+        });
+
+        map.getCanvas().style.cursor = 'default';
+
+        map.fitBounds([
+            [-133.2421875, 16.972741],
+            [-47.63671875, 52.696361]
+        ]);
     </script>
 </body>
+
 </html>
