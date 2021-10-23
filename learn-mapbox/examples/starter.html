@@ -13,16 +13,6 @@
     <style>
         .relative {
             position: relative;
-            height: 500px;
-        }
-
-        /**
-        * Create a position for the map
-        * on the page */
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
         }
 
         /**
@@ -41,9 +31,9 @@
         #features {
             top: 0;
             right: 0;
-            height: 130px;
+            height: 120px;
             margin-top: 20px;
-            width: 250px;
+            width: 200px;
             padding: 0.5rem;
         }
 
@@ -73,15 +63,17 @@
         <div class="row">
             <h2>Choropleth Map</h2>
             <div class="col-sm-6">
-                <div class="relative">
-                    <div id='map' style="width: 500px; height: 500px;" class="w-100"></div>
-                    <div class='map-overlay' id='features'>
-                        <h4>US population density</h4>
-                        <div id='pd'>
-                            <p>Hover over a state!</p>
+                <div class="card">
+                    <div class="card-header">US Population Density</div>
+                    <div class="card-body relative p-0">
+                        <div id='map' style="width: 500px; height: 500px;" class="w-100"></div>
+                        <div class='map-overlay' id='features'>
+                            <div id='pd'>
+                                <p>Hover over a state!</p>
+                            </div>
                         </div>
+                        <div class='map-overlay' id='legend'></div>
                     </div>
-                    <div class='map-overlay' id='legend'></div>
                 </div>
             </div>
         </div>
@@ -94,7 +86,8 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoiODk5MW5vZmVhciIsImEiOiJja3YzOWltM3cxZHBjMnVxMXZ1MjFvZzl1In0.INARVM0hWYBasZThvVobhQ';
         var map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/8991nofear/ckv3bt2eo4k3n15mvlfrx2qnj'
+            // style: 'mapbox://styles/examples/cjgioozof002u2sr5k7t14dim' // <- this work
+            style: 'mapbox://styles/8991nofear/ckv3bt2eo4k3n15mvlfrx2qnj' // <- this didn't work
         });
 
         map.on('load', () => {
