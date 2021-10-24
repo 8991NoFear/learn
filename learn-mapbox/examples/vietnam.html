@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="row pt-3">
-            <div class="col-sm-12">
+            <div class="col-lg-6">
                 <div class="card">
                     <div class="card-header">
                         Vietnames Map
@@ -28,16 +28,25 @@
     <script defer>
 
         let data;
-        fetch('./diaphantinhenglish.geojson')
+        fetch('./diaphanhuyen.geojson')
         .then(response => response.json())
         .then(json => {
             data = json;
         });
 
+        // TOREMEMBER: phai dung thu tu southeast roi den northwest
+        const bounds = [
+            [95.4, 5.5], // southeast 5.299, 
+            [121.6, 24.9] // northwest
+        ];
+
         mapboxgl.accessToken = 'pk.eyJ1IjoiODk5MW5vZmVhciIsImEiOiJja3YzOWltM3cxZHBjMnVxMXZ1MjFvZzl1In0.INARVM0hWYBasZThvVobhQ';
         const map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/8991nofear/ckv3yfkga567r14pid8xjzltm'
+            style: 'mapbox://styles/8991nofear/ckv3yfkga567r14pid8xjzltm',
+            center: [108.206230, 16.047079], // danang
+            zoom: 4.5,
+            maxBounds: bounds
         });
 
         map.on('load', () => {
@@ -54,12 +63,6 @@
                     'fill-color': '#f08',
                     'fill-opacity': 0.4
                 }
-            });
-
-            const hanoi = [105.8412, 21.0245];
-            map.jumpTo({
-                center: hanoi,
-                zoom: 5
             });
         });
     </script>
