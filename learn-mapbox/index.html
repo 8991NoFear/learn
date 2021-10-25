@@ -23,6 +23,16 @@
             <li>
                 Khi chỉ định phạm vi bản đồ, mặc định bản đồ được zoom ở mức min sao cho toàn bộ bản đồ cover toàn bộ không gian thẻ div (thẻ dùng để chứa bản đồ). Khi đó, nếu chỉ định thêm thuộc tính <code>zoom</code> thì nó chỉ có ý nghĩa khi giá trị của nó lớn hơn giá trị min :))
             </li>
+            <li>
+                Muốn xóa logo ở góc trái và góc phải bản đồ thì thêm đoạn css như sau:
+<pre>
+<code>
+    .mapboxgl-ctrl-bottom-left, .mapboxgl-ctrl-bottom-right {
+        display: none !important;
+    }
+</code>
+</pre>
+            </li>
         </ol>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
