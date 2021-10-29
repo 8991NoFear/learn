@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback hell</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Watch console :)</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script defer>
+        const stocks = {
+            fruids: [
+                "strawbery",
+                "grapes",
+                "banana",
+                "apple"
+            ],
+            liquids: [
+                "water",
+                "ice"
+            ],
+            holder: [
+                "cone",
+                "cup",
+                "stick"
+            ],
+            toppings: [
+                "chocolate",
+                "peanuts"
+            ]
+        };
+
+        // This is where the nightware begins :(
+        const order = fruid_idx => {
+            setTimeout(() => {
+                console.log('Wait...');
+
+                setTimeout(() => {
+                    console.log(`#1 chopped fruids: ${stocks.fruids[fruid_idx]}`);
+
+                    setTimeout(() => {
+                        console.log(`#2 selected liquids: ${stocks.liquids[0]}, ${stocks.liquids[1]}`);
+
+                        setTimeout(() => {
+                            console.log(`#3 poured in: ${stocks.holder[0]}, ${stocks.holder[1]}, ${stocks.holder[2]}`);
+
+                            setTimeout(() => {
+                                console.log(`#4 added toppings: ${stocks.toppings[0]}, ${stocks.toppings[1]}`);
+
+                                setTimeout(() => {
+                                    console.log(`Done :)`);
+                                }, 1000)
+                            }, 2000)
+                        }, 1000)
+                    }, 2000);
+                }, 1000);
+            }, 2000);
+        }
+
+        order(0);
+    </script>
+</body>
+
+</html>
