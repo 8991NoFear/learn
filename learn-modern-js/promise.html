@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="h1">Watch console :)</div>
+        <ul id="mList"></ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script defer>
+        const users = [{
+            id: 1,
+            name: "Alice"
+        }, {
+            id: 2,
+            name: "Bob"
+        }, {
+            id: 3,
+            name: "Catherin"
+        }];
+
+        const comments = [{
+            id: 1,
+            user_id: 1,
+            content: "What the heck is going on"
+        }, {
+            id: 2,
+            user_id: 2,
+            content: "I don't know"
+        }];
+
+        // get users
+        function getUsersByIds(userIds) {
+            return new Promise((resolve, reject) => {
+                const res = users.filter((user) => {
+                    return userIds.includes(user.id);
+                });
+                setTimeout(() => {
+                    resolve(res);
+                }, 1000);
+            });
+        }
+
+        // get comments
+        function getComments() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(comments);
+                }, 1000);
+            })
+        }
+
+        getComments()
+            .then(commentData => {
+                const userIds = commentData.map((comment) => {
+                    return comment.user_id;
+                });
+
+                return getUsersByIds(userIds)
+                    .then(userData => { // Promise hell :D
+                        return {
+                            users: userData,
+                            comments: commentData
+                        }
+                    });
+            })
+            .then(data => { // display comment-user
+                const ul = document.querySelector('ul#mList');
+                let html = '';
+                data.comments.forEach((comment) => {
+                    let user = data.users.find((user) => {
+                        return user.id === comment.user_id;
+                    });
+                    if (user != undefined) {
+                        html += `<li>${user.name}: ${comment.content}</li>`;
+                    }
+                });
+                ul.innerHTML = html;
+            });
+    </script>
+</body>
+
+</html>
