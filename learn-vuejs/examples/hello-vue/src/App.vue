@@ -28,7 +28,7 @@
     </form>
     <hr>
     <input type="text" v-model="newTask">
-    <button @click="tasks.push({content: newTask, done: false})">Add</button>
+    <button @click="addNewTask()">Add</button>
     <p v-for="(task, index) in tasks" :key="index">
       <input type="checkbox" v-model="task.done">
       <span :class="{ done: task.done }">{{ task.content }}</span>
@@ -56,8 +56,23 @@ export default {
         {content: 'take a shower', done: false},
         {content: 'eat breakfast', done: false},
         {content: 'code', done: false},
-      ]
+      ],
+      newTask: ''
     }
+  },
+  methods: {
+    addNewTask() {
+      this.tasks.push({content: this.newTask, done: false})
+    }
+  },
+  watch: {
+    newTask(oldValue, newValue) {
+      console.log(oldValue);
+      console.log(newValue);
+    }
+  },
+  mounted: {
+    // call api
   }
 }
 </script>
