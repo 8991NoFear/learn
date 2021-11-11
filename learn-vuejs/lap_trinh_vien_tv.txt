@@ -30,5 +30,28 @@ Tạo component
 Mỗi một component chỉ có 1 template, mỗi một template chỉ có 1 element (thông thường là <div>)
 
 2 ways binding:
-    +, ràng buộc 2 chiều
-    +, phụ thuộc vào loại element
++, ràng buộc 2 chiều
++, phụ thuộc vào loại element
+
+hook: hàm móc vào những thời điểm nhất định trong life cycle
+
+binding:
++, value binding: {{  }}
++, html attribute binding: v-bind:[attr]="" or :[attr]=""
++, class biding: (:class="{red: isRed, blue: isBlue}")
+
+Model: liên kết element với property (v-model)
+
+Event Handling: bắt sự kiện của element
++, v-on:[name_of_event]="js code goes here" or @[name_of_event]="js code goes here"
++, prevent default event: e.g. @click.prevent="abc()"
+
+ref: ánh xạ đến chính element
++, ref="any" -> truy cập vào element this.$refs.any
+
+Conditional rendering:
+    +, v-show, v-hide (can thiệp vào display)
+    +, v-if, v-else-if, v-else
+
+List rendering:
+    +, v-for
