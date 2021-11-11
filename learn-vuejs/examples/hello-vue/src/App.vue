@@ -6,6 +6,10 @@
     <input type="checkbox" v-model="inputCheckbox">Accept terms&service
     <input type="radio" value="1" v-model="inputRadio">1
     <input type="radio" value="2" v-model="inputRadio">2
+    <div v-show="isShow">
+      <h1>Hello World!</h1>
+    </div>
+    <button @click="isShow = !isShow">Show/Hide</button>
   </div>
 </template>
 
@@ -20,7 +24,8 @@ export default {
     return {
       inputText: "BinhLD",
       inputCheckbox: true,
-      inputRadio: 2
+      inputRadio: 2,
+      isShow: true
     }
   }
 }
