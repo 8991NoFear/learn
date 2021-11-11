@@ -62,3 +62,6 @@ Methods:
 Watch:
     +, theo dõi sự thay đổi của thuộc tính của vue object
     +, tên giống hệt tên thuộc tính
+
+Hooks:
+    +, mounted
