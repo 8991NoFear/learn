@@ -1,0 +1,34 @@
+1) Vue CLI
+$ npm install -g @vue/cli
+$ vue --version
+$ vue create hello-vue
+$ cd hello-vue
+$ npm run serve
+$ npm run build
+
+2) Cấu trúc thư mục
+- src (source codel)
+    |- main.js (file gốc)
+    |- App.vue (component gốc)
+    |- assets (images, fonts, ...)
+    |- components (chứa component con)
+
+3) Component
+Mỗi component đều gồm có 3 thành phần:
++, template: html
++, script: js
++, style: css
+    +, có hỗ trợ scss
+    +, thẻ <style scoped>: style dành riêng cho component
+
+Tạo component
++, Tạo file .vue
++, Import
++, Khai báo
++, Sử dụng
+
+Mỗi một component chỉ có 1 template, mỗi một template chỉ có 1 element (thông thường là <div>)
+
+2 ways binding:
+    +, ràng buộc 2 chiều
+    +, phụ thuộc vào loại element
