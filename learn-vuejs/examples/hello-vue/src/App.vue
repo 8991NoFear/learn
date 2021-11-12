@@ -33,15 +33,24 @@
       <input type="checkbox" v-model="task.done">
       <span :class="{ done: task.done }">{{ task.content }}</span>
     </p>
+    <hr>
+    <Task v-for="(task, index) in tasks" :key="index" :taskData="task"/>
+    <hr>
+    <TagSelector />
+    <hr>
+    <span>{{ totalMoney | formatMoney }}</span>
+    <button @click="totalMoney += 20000">Increase by 20k</button>
   </div>
 </template>
 
 <script>
-import Menu from './components/Menu.vue'
+import Task from './components/Task.vue'
+import TagSelector from './components/TagSelector.vue'
 
 export default {
   components: {
-    Menu // Menu: Menu
+    Task, // Task: Task,
+    TagSelector
   },
   data() {
     return {
@@ -57,7 +66,8 @@ export default {
         {content: 'eat breakfast', done: false},
         {content: 'code', done: false},
       ],
-      newTask: ''
+      newTask: '',
+      totalMoney: 1000000
     }
   },
   methods: {
@@ -73,6 +83,11 @@ export default {
   },
   mounted: {
     // call api
+  },
+  filters: {
+      formatMoney(money) {
+          return money.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+      }
   }
 }
 </script>
