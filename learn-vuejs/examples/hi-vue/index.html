@@ -77,8 +77,8 @@
             template: `
                 <form @submit.prevent="handleSubmit">
                     <h2>{{ title }}</h2>
-                    <custom-input type="email" v-bind:label="emailLabel"/>
-                    <custom-input type="password" v-bind:label="passwordLabel"/>
+                    <custom-input type="email" v-model="email" v-bind:label="emailLabel"/>
+                    <custom-input type="password" v-model="password" v-bind:label="passwordLabel"/>
                     <button>Login</button>
                 </form>
             `,
@@ -109,11 +109,22 @@
                 </label>
             `,
             props: [
-                'label'
+                'label',
+                'modelValue'
             ],
-            data() {
-                return {
-                    inputValue: ''
+            // data() {
+            //     return {
+            //         inputValue: ''
+            //     }
+            // },
+            computed: {
+                inputValue: {
+                    get() {
+                        return this.modelValue;
+                    },
+                    set(value) {
+                        this.$emit('update:modelValue', value);
+                    }
                 }
             }
         })
