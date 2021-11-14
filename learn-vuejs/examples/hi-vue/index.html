@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Vue From freecodecamp.org</title>
+    <style>
+        .box {
+            width: 256px;
+            height: 256px;
+            background-color: blueviolet;
+        }
+        
+        .box1 {
+            width: 256px;
+            height: 256px;
+            background-color: chartreuse;
+        }
+        
+        .box2 {
+            width: 256px;
+            height: 256px;
+            background-color: chocolate;
+        }
+        
+        .box3 {
+            width: 256px;
+            height: 256px;
+            background-color: cornflowerblue;
+        }
+        
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        {{ greeting }}
+        <input type="text" v-model="greeting" @keyup.enter="greet(greeting + 'D:D:D')">
+        <hr>
+        <div v-if="isVisible" class="box"></div>
+        <div v-else-if="isVisible1" class="box2"></div>
+        <div v-else="isVisible2" class="box3"></div>
+        <hr>
+        <button @click="toggleBox">Toggle Box</button>
+        <div v-show="isVisible3" class="box3"></div>
+        <hr>
+        <login-form />
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        let app = Vue.createApp({
+            data() {
+                return {
+                    greeting: 'Hello Vue3!',
+                    isVisible: true,
+                    isVisible1: true,
+                    isVisible2: true,
+                    isVisible3: true,
+                }
+            },
+            methods: {
+                toggleBox() {
+                    this.isVisible3 = !this.isVisible3;
+                },
+                greet(greeting) {
+                    console.log(greeting);
+                }
+            }
+        });
+
+        app.component('login-form', {
+            template: `
+                <form @submit.prevent="handleSubmit">
+                    <h2>{{ title }}</h2>
+                    <custom-input type="email" v-bind:label="emailLabel"/>
+                    <custom-input type="password" v-bind:label="passwordLabel"/>
+                    <button>Login</button>
+                </form>
+            `,
+            data() {
+                return {
+                    title: 'Login Form',
+                    email: '',
+                    password: '',
+                    emailLabel: 'Email',
+                    passwordLabel: 'Password'
+                }
+            },
+            methods: {
+                handleSubmit() {
+                    console.log(this.email, this.password);
+                }
+            },
+            components: [
+                'custom-input'
+            ]
+        });
+
+        app.component('custom-input', {
+            template: `
+                <label>
+                    {{ label }}
+                    <input type="text" v-model="inputValue"> 
+                </label>
+            `,
+            props: [
+                'label'
+            ],
+            data() {
+                return {
+                    inputValue: ''
+                }
+            }
+        })
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

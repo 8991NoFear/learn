@@ -1,0 +1,7 @@
+1) Overview
+v-if vs v-show (display: none): v-show thường được sử dụng khi toggle khá thường xuyên, trong các trường hợp còn lại thì sử dụng v-if
+
+v-cloak
+[v-cloak] {
+    display: none;
+}
