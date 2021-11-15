@@ -7,3 +7,5 @@ v-cloak
 }
 
 this.$emit() --> publish event to others
+
+<p v-for="(value, index) in inputs" :key="index">{{ value }}</p>

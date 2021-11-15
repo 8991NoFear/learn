@@ -77,23 +77,33 @@
             template: `
                 <form @submit.prevent="handleSubmit">
                     <h2>{{ title }}</h2>
-                    <custom-input type="email" v-model="email" v-bind:label="emailLabel"/>
-                    <custom-input type="password" v-model="password" v-bind:label="passwordLabel"/>
+                    <custom-input
+                        v-for="(input, index) in inputs"
+                        :key="index"
+                        v-model="input.value"
+                        v-bind:label="input.label"
+                        v-bind:type="input.type"
+                    />
                     <button>Login</button>
                 </form>
             `,
             data() {
                 return {
                     title: 'Login Form',
-                    email: '',
-                    password: '',
-                    emailLabel: 'Email',
-                    passwordLabel: 'Password'
+                    inputs: [{
+                        value: '',
+                        type: 'email',
+                        label: 'Email'
+                    }, {
+                        value: '',
+                        type: 'password',
+                        label: 'Password'
+                    }],
                 }
             },
             methods: {
                 handleSubmit() {
-                    console.log(this.email, this.password);
+                    console.log(this.inputs[0].value, this.inputs[1].value);
                 }
             },
             components: [
@@ -105,12 +115,13 @@
             template: `
                 <label>
                     {{ label }}
-                    <input type="text" v-model="inputValue"> 
+                    <input :type="type" v-model="inputValue"> 
                 </label>
             `,
             props: [
                 'label',
-                'modelValue'
+                'modelValue',
+                'type'
             ],
             // data() {
             //     return {
