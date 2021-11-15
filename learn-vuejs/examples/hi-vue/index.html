@@ -31,6 +31,12 @@
             background-color: cornflowerblue;
         }
         
+        .box4 {
+            width: 256px;
+            height: 256px;
+            background-color: darkkhaki;
+        }
+        
         [v-cloak] {
             display: none;
         }
@@ -50,6 +56,10 @@
         <div v-show="isVisible3" class="box3"></div>
         <hr>
         <login-form />
+        <hr>
+        <h1>WTF</h1>
+        <button @click="toggleBox4">toggle box 4</button>
+        <box v-if="isVisible4" />
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
@@ -61,6 +71,7 @@
                     isVisible1: true,
                     isVisible2: true,
                     isVisible3: true,
+                    isVisible4: true
                 }
             },
             methods: {
@@ -69,7 +80,13 @@
                 },
                 greet(greeting) {
                     console.log(greeting);
+                },
+                toggleBox4() {
+                    this.isVisible4 = !this.isVisible4;
                 }
+            },
+            updated() {
+                console.log('Main component is updated');
             }
         });
 
@@ -138,7 +155,23 @@
                     }
                 }
             }
-        })
+        });
+
+        app.component('box', {
+            template: `
+                <div class="box4"></div>
+            `,
+            created() {
+                console.log('box is created');
+            },
+            mounted() {
+                console.log('box is mounted');
+            },
+            unmounted() {
+                console.log('box is unmounted');
+            }
+        });
+
         app.mount('#app');
     </script>
 </body>
