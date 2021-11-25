@@ -1,0 +1,17 @@
+Learn from github: https://github.com/iggredible/Learn-Vim
+
+00)
+01)
+02)
+03)
+04)
+05) Moving in file
+- character navigation
+- word/WORD navigation
+- current line navigation
+- sentence and paragraph navigation
+- line number navigation
+- window navigation
+- scrolling
+- jump
+
