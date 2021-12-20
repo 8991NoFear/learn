@@ -65,3 +65,10 @@ Watch:
 
 Hooks:
     +, mounted
+	
+Props:
+	+, Đẩy dữ liệu từ component cha sang component con
+	+, Thuộc tính props ở component con có thể là array hoặc object
+	
+Filter: biến đổi dữ liệu trước khi render
+	+, filters

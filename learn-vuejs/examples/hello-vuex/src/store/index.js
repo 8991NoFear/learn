@@ -23,6 +23,13 @@ const storeData = {
     mutations: {
         TOGGLE_AUTH(state) {
             state.auth.isAuthenticated = !state.auth.isAuthenticated;
+        },
+        TOGGLE_COMPLETED: (state, id) => {
+            state.todos.forEach(todo => {
+                if (todo.id == id) {
+                    todo.completed = !todo.completed;
+                }
+            });
         }
     }
 }
