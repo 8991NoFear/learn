@@ -30,7 +30,15 @@ const storeData = {
                     todo.completed = !todo.completed;
                 }
             });
-        }
+        },
+        DELETE_TODO: function (state, id) {
+            state.todos = state.todos.filter(todo => todo.id != id);
+        },
+    },
+    actions: {
+        deleteTodo({ commit }, id) {
+            commit('DELETE_TODO', id);
+        },
     }
 }
 

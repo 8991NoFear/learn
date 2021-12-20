@@ -12,6 +12,7 @@
           :checked="todo.completed"
           @change="TOGGLE_COMPLETED(todo.id)"
         />
+        <button @click="deleteTodo(todo.id)">delete</button>
       </li>
     </ul>
     <p v-else style="text-align: center">Not authorized</p>
@@ -24,7 +25,12 @@ import { mapMutations, mapState } from "vuex";
 export default {
   name: "Todos",
   computed: mapState(["todos", "auth"]),
-  methods: mapMutations(["TOGGLE_COMPLETED"]),
+  methods: {
+    ...mapMutations(["TOGGLE_COMPLETED"]),
+    deleteTodo(id) {
+      this.$store.dispatch("deleteTodo", id);
+    },
+  },
 };
 </script>
 
@@ -55,5 +61,16 @@ export default {
 
 .todo-list li.completed {
   background: rgb(119, 218, 243);
+}
+
+.todo-list li button {
+  float: right;
+  margin-right: 20px;
+}
+
+.todo-list li button:hover {
+  cursor: pointer;
+  background: red;
+  color: white;
 }
 </style>
