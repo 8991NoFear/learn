@@ -19,6 +19,11 @@ const storeData = {
         progress: (state, getters) => {
             return Math.round(getters.doneTodos.length / state.todos.length * 100);
         }
+    },
+    mutations: {
+        TOGGLE_AUTH(state) {
+            state.auth.isAuthenticated = !state.auth.isAuthenticated;
+        }
     }
 }
 

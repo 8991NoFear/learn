@@ -7,10 +7,10 @@
       <li>Q&A</li>
       <li v-if="auth.isAuthenticated">
           Total todos: {{ todos.length }}
-          <button>Logout</button>
+          <button @click="loginOrLogout">Logout</button>
       </li>
       <li v-else>
-          <button>Login</button>
+          <button @click="loginOrLogout">Login</button>
       </li>
     </ul>
   </div>
@@ -21,7 +21,12 @@ import {mapState} from 'vuex'
 
 export default {
   name: "Navbar",
-  computed: mapState(['todos', 'auth'])
+  computed: mapState(['todos', 'auth']),
+  methods: {
+      loginOrLogout() {
+          this.$store.commit('TOGGLE_AUTH');
+      }
+  }
 };
 </script>
 
