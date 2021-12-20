@@ -1,0 +1,3 @@
+[Vuex]
+- sử dụng thuộc tính computed của component để móc vào kho chứa dl
+- không nên sử dụng mapState nếu dl cần phải xử lý tính toán ở trong component
