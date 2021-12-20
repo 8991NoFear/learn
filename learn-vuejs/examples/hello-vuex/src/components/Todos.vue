@@ -1,6 +1,6 @@
 <template>
   <div class="todo-list">
-    <ul v-if="auth.isAuthenticated">
+    <ul v-if="isAuthenticated">
       <li
         v-for="todo in todos"
         :key="todo.id"
@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "Todos",
-  computed: mapState(["todos", "auth"]),
+  computed: mapGetters(["todos", "isAuthenticated"]),
   created() {
     this.getTodos();
   },

@@ -5,24 +5,24 @@
       <li>Home</li>
       <li>About</li>
       <li>Q&A</li>
-      <li v-if="auth.isAuthenticated">
-          Total todos: {{ todos.length }}
-          <button @click="TOGGLE_AUTH">Logout</button>
+      <li v-if="isAuthenticated">
+        Total todos: {{ todos.length }}
+        <button @click="TOGGLE_AUTH">Logout</button>
       </li>
       <li v-else>
-          <button @click="TOGGLE_AUTH">Login</button>
+        <button @click="TOGGLE_AUTH">Login</button>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import {mapMutations, mapState} from 'vuex'
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
   name: "Navbar",
-  computed: mapState(['todos', 'auth']),
-  methods: mapMutations(['TOGGLE_AUTH']),
+  computed: mapGetters(["todos", "isAuthenticated"]),
+  methods: mapMutations(["TOGGLE_AUTH"]),
 };
 </script>
 
