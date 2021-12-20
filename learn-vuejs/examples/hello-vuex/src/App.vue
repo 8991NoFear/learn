@@ -1,6 +1,7 @@
 <template>
   <div id="app">
       <Navbar />
+      <TodoForm />
       <Todos />
       <Statusbar />
       <Progressbar />
@@ -12,6 +13,7 @@ import Todos from './components/Todos.vue'
 import Navbar from './components/Navbar.vue'
 import Statusbar from './components/Statusbar.vue'
 import Progressbar from './components/Progressbar.vue'
+import TodoForm from './components/TodoForm.vue'
 
 export default {
   name: 'App',
@@ -20,6 +22,7 @@ export default {
       Navbar,
       Statusbar,
       Progressbar,
+      TodoForm,
   }
 }
 </script>

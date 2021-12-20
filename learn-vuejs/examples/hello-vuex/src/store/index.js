@@ -34,11 +34,17 @@ const storeData = {
         DELETE_TODO: function (state, id) {
             state.todos = state.todos.filter(todo => todo.id != id);
         },
+        ADD_TODO(state, newTodo) {
+            state.todos.unshift(newTodo);
+        },
     },
     actions: {
         deleteTodo({ commit }, id) {
             commit('DELETE_TODO', id);
         },
+        addTodo({ commit }, newTodo) {
+            commit('ADD_TODO', newTodo);
+        }
     }
 }
 
