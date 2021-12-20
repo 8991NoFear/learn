@@ -6,8 +6,8 @@ Vue.use(Vuex)
 const storeData = {
     state: {
         todos: [
-            {id: 1, title: "Nấu cơm", completed: false},
-            {id: 2, title: "Rửa bát", completed: false},
+            {id: 1, title: "Nấu cơm", completed: true},
+            {id: 2, title: "Rửa bát", completed: true},
             {id: 3, title: "Ngủ trưa", completed: false},
         ],
         auth: {

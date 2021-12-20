@@ -2,18 +2,24 @@
   <div id="app">
       <Navbar />
       <Todos />
+      <Statusbar />
+      <Progressbar />
   </div>
 </template>
 
 <script>
 import Todos from './components/Todos.vue'
 import Navbar from './components/Navbar.vue'
+import Statusbar from './components/Statusbar.vue'
+import Progressbar from './components/Progressbar.vue'
 
 export default {
   name: 'App',
   components: {
       Todos,
-      Navbar
+      Navbar,
+      Statusbar,
+      Progressbar,
   }
 }
 </script>
