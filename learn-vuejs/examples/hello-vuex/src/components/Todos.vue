@@ -20,16 +20,14 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
   name: "Todos",
   computed: mapState(["todos", "auth"]),
   methods: {
     ...mapMutations(["TOGGLE_COMPLETED"]),
-    deleteTodo(id) {
-      this.$store.dispatch("deleteTodo", id);
-    },
+    ...mapActions(["deleteTodo"]),
   },
 };
 </script>
