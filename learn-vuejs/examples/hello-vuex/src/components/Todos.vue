@@ -25,9 +25,12 @@ import { mapActions, mapMutations, mapState } from "vuex";
 export default {
   name: "Todos",
   computed: mapState(["todos", "auth"]),
+  created() {
+    this.getTodos();
+  },
   methods: {
     ...mapMutations(["TOGGLE_COMPLETED"]),
-    ...mapActions(["deleteTodo"]),
+    ...mapActions(["deleteTodo", "getTodos"]),
   },
 };
 </script>

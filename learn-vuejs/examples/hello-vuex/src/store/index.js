@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import axios from 'axios'
+
 Vue.use(Vuex)
 
 const storeData = {
     state: {
         todos: [
-            { id: 1, title: "Nấu cơm", completed: true },
-            { id: 2, title: "Rửa bát", completed: true },
-            { id: 3, title: "Ngủ trưa", completed: false },
         ],
         auth: {
             isAuthenticated: false,
@@ -37,14 +36,35 @@ const storeData = {
         ADD_TODO(state, newTodo) {
             state.todos.unshift(newTodo);
         },
+        GET_TODOS(state, todos) {
+            state.todos = todos;
+        },
     },
     actions: {
-        deleteTodo({ commit }, id) {
-            commit('DELETE_TODO', id);
+        async deleteTodo({ commit }, id) {
+            try {
+                await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+                commit('DELETE_TODO', id);
+            } catch (error) {
+                console.log(error);
+            }
         },
-        addTodo({ commit }, newTodo) {
-            commit('ADD_TODO', newTodo);
-        }
+        async addTodo({ commit }, newTodo) {
+            try {
+                await axios.post('https://jsonplaceholder.typicode.com/todos', newTodo);
+                commit('ADD_TODO', newTodo);
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async getTodos({ commit }) {
+            try {
+                const response = await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5');
+                commit('GET_TODOS', response.data);
+            } catch (error) {
+                console.log(error);
+            }
+        },
     }
 }
 
