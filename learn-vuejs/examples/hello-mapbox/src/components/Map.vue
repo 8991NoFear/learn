@@ -4,13 +4,14 @@
     :accessToken="accessToken"
     :mapStyle="mapStyle"
     @load="onMapLoad"
+    :maxBounds="mapBounds"
     v-if="dataFetched"
   >
     <MglFullscreenControl />
     <MglNavigationControl />
     <MglScaleControl />
     <MglGeojsonLayer
-      :sourceId="geoJsonSource.data.id"
+      :sourceId="geoJsonLayer.source"
       :source="geoJsonSource"
       :layerId="geoJsonLayer.id"
       :layer="geoJsonLayer"
@@ -65,6 +66,10 @@ export default {
         },
         beforeLayer: "diaphanhuyen-line",
       },
+      mapBounds: [
+        [95.4, 5.5], // southeast 5.299,
+        [121.6, 24.9], // northwest
+      ],
     };
   },
   computed: mapGetters(["geoJsonSource", "dataFetched"]),
