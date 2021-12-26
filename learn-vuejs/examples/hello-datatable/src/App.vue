@@ -5,6 +5,7 @@
         <div class="card h-100">
           <div class="card-body">
             <h5>Vaccination sites by locations</h5>
+            <Datatable />
           </div>
         </div>
       </div>
@@ -13,12 +14,20 @@
 </template>
 
 <script>
+import Datatable from "./components/Datatable.vue";
+
 export default {
   name: "App",
+  components: {
+    Datatable,
+  },
 };
 </script>
 
 <style>
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-alpine.css";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
