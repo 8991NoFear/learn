@@ -1,12 +1,19 @@
 <template>
-  <div class="container"></div>
+  <div class="container">
+    <home />
+  </div>
 </template>
 
 <script>
+import Home from "./components/Home.vue";
 import bootstrap from "bootstrap";
 
 export default {
   name: "App",
+
+  components: {
+    Home,
+  },
 };
 </script>
 
