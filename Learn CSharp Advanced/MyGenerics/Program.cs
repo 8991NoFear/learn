@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Generics
+namespace MyGenerics
 {
     class Program
     {
