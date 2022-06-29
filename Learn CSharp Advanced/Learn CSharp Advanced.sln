@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGenerics", "MyGenerics\My
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLinq", "MyLinq\MyLinq.csproj", "{C911405D-8079-4914-8865-2CD9BFC0B5B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyEvents", "MyEvents\MyEvents.csproj", "{ABB374FC-EADB-4F9A-8885-C8B1A9AE9AA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C911405D-8079-4914-8865-2CD9BFC0B5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C911405D-8079-4914-8865-2CD9BFC0B5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C911405D-8079-4914-8865-2CD9BFC0B5B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB374FC-EADB-4F9A-8885-C8B1A9AE9AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABB374FC-EADB-4F9A-8885-C8B1A9AE9AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABB374FC-EADB-4F9A-8885-C8B1A9AE9AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABB374FC-EADB-4F9A-8885-C8B1A9AE9AA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
