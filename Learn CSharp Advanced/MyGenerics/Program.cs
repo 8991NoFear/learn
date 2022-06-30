@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace MyGenerics
 {
@@ -15,34 +14,5 @@ namespace MyGenerics
             var myBook = myDict["isbn03"];
             Console.WriteLine(myBook.Title);
         }
-    }
-
-    class GenericDictionary<TKey, TValue>
-    {
-        private Dictionary<TKey, TValue> dict;
-
-        public GenericDictionary()
-        {
-            dict = new Dictionary<TKey, TValue>();
-        }
-
-        public bool Add(TKey key, TValue value)
-        {
-            dict.Add(key, value);
-            return true;
-        }
-
-        public TValue this[TKey key]
-        {
-            get
-            {
-                return dict[key];
-            }
-        }
-    }
-
-    class Book
-    {
-        public string Title { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,27 +52,5 @@ namespace MyLinq
 
             //var averagePrice = books.Average(b => b.Price);
         }
-    }
-
-    class BookRepo
-    {
-        public List<Book> getBooks()
-        {
-            return new List<Book>()
-            {
-                new Book() { Title = "Beginning C#", Price = 19.9f},
-                new Book() { Title = "Intermediate C#", Price = 9.9f},
-                new Book() { Title = "Advanced C#", Price = 13.9f},
-                new Book() { Title = "Beginning .NET", Price = 6.9f},
-                new Book() { Title = "Intermediate .NET", Price = 15.9f},
-                new Book() { Title = "Advanced .NET", Price = 3.9f},
-            };
-        }
-    }
-
-    class Book
-    {
-        public string Title { get; set; }
-        public float Price { get; set; }
     }
 }
