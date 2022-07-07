@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyDynamic", "MyDynamic\MyDy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyExtensionMethods", "MyExtensionMethods\MyExtensionMethods.csproj", "{BE2A86BB-0DE7-4323-A509-20C025C62E89}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAsyncAwait", "MyAsyncAwait\MyAsyncAwait.csproj", "{F1755B3D-8130-4592-BCA1-95642795EAA9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{BE2A86BB-0DE7-4323-A509-20C025C62E89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE2A86BB-0DE7-4323-A509-20C025C62E89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE2A86BB-0DE7-4323-A509-20C025C62E89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1755B3D-8130-4592-BCA1-95642795EAA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1755B3D-8130-4592-BCA1-95642795EAA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1755B3D-8130-4592-BCA1-95642795EAA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1755B3D-8130-4592-BCA1-95642795EAA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
