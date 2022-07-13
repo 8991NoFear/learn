@@ -10,7 +10,7 @@ namespace Class
     {
         /*
          * C# use PascalCase for name of class, property, method
-         * and camelCase for name of local variable, parameter
+         * and camelCase for name of field, local variable, parameter
          * 
          * Why we use static member: To represent concept of singleton
          */
