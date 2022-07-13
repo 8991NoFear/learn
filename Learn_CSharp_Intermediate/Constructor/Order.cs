@@ -1,0 +1,7 @@
+﻿namespace Constructor
+{
+    class Order
+    {
+
+    }
+}
