@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3BD426B0-6770-4967-A490-59CC53501A72}</ProjectGuid>
+    <ProjectGuid>{6B95387B-C3B3-4C7A-80F3-3426F4786661}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Constructor</RootNamespace>
-    <AssemblyName>Constructor</AssemblyName>
+    <RootNamespace>ObjectInitializer</RootNamespace>
+    <AssemblyName>ObjectInitializer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Customer.cs" />
-    <Compile Include="Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

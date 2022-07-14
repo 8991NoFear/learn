@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Constructor
 {
@@ -16,9 +19,8 @@ namespace Constructor
      *  
      *  Best practices? Only create constructor when we really need to put object to wanted early state
      */
-    partial class Program
+    class Program
     {
-
         static void Main(string[] args)
         {
             var customer = new Customer();

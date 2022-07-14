@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3BD426B0-6770-4967-A490-59CC53501A72}</ProjectGuid>
+    <ProjectGuid>{B982C37D-6E25-4204-BCF1-7165C58031A3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Constructor</RootNamespace>
-    <AssemblyName>Constructor</AssemblyName>
+    <RootNamespace>Method</RootNamespace>
+    <AssemblyName>Method</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer.cs" />
-    <Compile Include="Order.cs" />
+    <Compile Include="Caculator.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

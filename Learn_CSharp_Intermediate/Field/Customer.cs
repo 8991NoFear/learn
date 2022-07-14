@@ -1,30 +1,37 @@
 ﻿using System.Collections.Generic;
 
-namespace Constructor
+namespace Field
 {
     class Customer
     {
         public int Id;
         public string Name;
-        public List<Order> Orders; // = new List<Order>();
+        public readonly List<Order> Orders;
+        // #1
+        //public readonly List<Order> Orders = new List<Order>();
 
         public Customer()
         {
+            // #2
             Orders = new List<Order>();
         }
 
-        // unneccessary constructor
         public Customer(int id)
             : this()
         {
             Id = id;
         }
 
-        // unneccessary constructor
         public Customer(int id, string name)
             : this(id)
         {
             Name = name;
+        }
+
+        public void Promote()
+        {
+            // Error
+            //Orders = new List<Order>();
         }
     }
 }
