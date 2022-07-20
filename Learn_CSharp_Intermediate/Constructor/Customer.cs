@@ -15,7 +15,7 @@ namespace Constructor
 
         // unneccessary constructor
         public Customer(int id)
-            : this()
+            : this() // best practices: non-default constructor should call other constructor
         {
             Id = id;
         }
