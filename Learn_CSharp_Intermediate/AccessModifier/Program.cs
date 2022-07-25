@@ -7,14 +7,22 @@ using System.Threading.Tasks;
 namespace AccessModifier
 {
     /*
-     * What? public, private, protected, internal, protected internal
-     * Why? Encapsulation (or information hiding)
+     * What?
+     *  +, public: accessible from anywhere
+     *  +, private: accessible only from class
+     *  +, protected: accessible from same class and derived classes
+     *  +, internal: accessible only from same assembly (domain) (offen use only for class)
+     *  +, protected internal: accessible only from same assembly and derived classes (WEIRD!)
+     * 
+     * Why? Encapsulation (or information hiding):
+     * Blackbox metaphore: "The more class reveal its internal implementation the more risky when we're going to change that class"
+     * 
      * How? private for field and public for getter/setter
      * 
-     * class, property, method, public field => PascalCase
-     * private field => _camelCase
-     * parameter, local variable => camelCase
-     * 
+     * Naming convention:
+     * +, class, property, method, public field => PascalCase
+     * +, private field => _camelCase
+     * +, parameter, local variable => camelCase
      */
 
     class Program
@@ -24,26 +32,6 @@ namespace AccessModifier
             var person = new Person();
             person.SetBirthdate(new DateTime(1998, 11, 23));
             Console.WriteLine(person.GetBirthDate());
-        }
-    }
-
-    class Person
-    {
-        private DateTime _birthdate;
-
-        public Person()
-        {
-
-        }
-
-        public void SetBirthdate(DateTime birthdate)
-        {
-            _birthdate = birthdate;
-        }
-
-        public DateTime GetBirthDate()
-        {
-            return _birthdate;
         }
     }
 }
