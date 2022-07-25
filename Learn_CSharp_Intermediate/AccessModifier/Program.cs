@@ -29,9 +29,13 @@ namespace AccessModifier
     {
         static void Main(string[] args)
         {
-            var person = new Person();
-            person.SetBirthdate(new DateTime(1998, 11, 23));
-            Console.WriteLine(person.GetBirthDate());
+            // var person = new Person();
+            // person.SetBirthdate(new DateTime(1998, 11, 23));
+            // Console.WriteLine(person.GetBirthDate());
+            
+            var customer = new GoldCustomer() { Id = 1, Name = "Mosh", ParticipationAt = new DateTime(2020, 11, 23) };
+            customer.Promote();
+            customer.offerInterestRate();
         }
     }
 }
