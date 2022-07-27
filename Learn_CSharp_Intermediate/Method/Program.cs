@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Method
 {
-    partial class Program
+    class Program
     {
         static void Main(string[] args)
         {
