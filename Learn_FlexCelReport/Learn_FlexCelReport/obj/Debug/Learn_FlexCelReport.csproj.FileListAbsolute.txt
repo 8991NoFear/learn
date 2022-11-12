@@ -1,0 +1,10 @@
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\bin\Debug\Learn_FlexCelReport.exe.config
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\bin\Debug\Learn_FlexCelReport.exe
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\bin\Debug\Learn_FlexCelReport.pdb
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\bin\Debug\FlexCel.dll
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\bin\Debug\FlexCel.xml
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\obj\Debug\Learn_FlexCelReport.csproj.AssemblyReference.cache
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\obj\Debug\Learn_FlexCelReport.csproj.CoreCompileInputs.cache
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\obj\Debug\Learn_FlexCelReport.csproj.CopyComplete
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\obj\Debug\Learn_FlexCelReport.exe
+C:\Users\ANONYMOUS\Desktop\learn\Learn_FlexCelReport\Learn_FlexCelReport\obj\Debug\Learn_FlexCelReport.pdb
